@@ -71,15 +71,14 @@ class PDOConnection extends PDO implements ConnectionInterface, ServerInfoAwareC
 
     /**
      * @param string          $sql
-     * @param array<int, int> $driverOptions
      *
      * @return PDOStatement
      */
     #[ReturnTypeWillChange]
-    public function prepare($sql, $driverOptions = [])
+    public function prepare($sql)
     {
         try {
-            $statement = parent::prepare($sql, $driverOptions);
+            $statement = parent::prepare($sql);
             assert($statement instanceof PDOStatement);
 
             return $statement;
